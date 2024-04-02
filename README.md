@@ -43,9 +43,9 @@ We use local Excel files to manage our products.
 <br/>
 <br/>
 
-We should use Stripe to manage our product data instead of manually moving Excel or any local computer files.
+I suggest, that we should use STRAPI to manage our product data instead of manually moving Excel or any local computer files.
 This involves creating entries for each product, specifying its attributes, linking relevant resources, editing and other.
-Basic approach is to manually enter data into STRAPI dashboard, however it also supports importing data from CSV files.
+The most basic approach is to manually enter data into STRAPI dashboard, however it also supports importing data from CSV files.
 
 <!-- TOPIC -->
 <br/>
@@ -55,12 +55,12 @@ Our back-end to database flow is confusing and poorly documented.
 <br/>
 <br/>
 
-Our project involves a combination of using STRAPI and writing raw SQL queries.
-I think that it is beneficial to maintain consistency throughout the application, as it is very hard to debug and share resources for future development.
+Our project involves a combination of STRAPI and raw SQL queries to communicate with the database (PostgreSQL in this case).
+It is beneficial to maintain consistency throughout the application, as it is very hard to debug and share resources for future development.
 
-We should strive for a unified approach, because riting raw SQL queries introduces security risks such as SQL injection vulnerabilities, we also have to be aware of proper input validation, queries, and access controls.
+We should strive for a unified approach, because writing raw SQL queries introduces security risks such as SQL injection vulnerabilities, we have to be aware of proper input validation, valid queries and access controls.
 
-We should discuss the migration strategy from manual SQL queries to STRAPI for all database interactions.
+So, to fix this, I think we should discuss the migration strategy from manual SQL queries to STRAPI for all database interactions.
 
 ### SOLUTIONS
 
@@ -72,27 +72,13 @@ We better split STRAPI for handling our products, and keep back-end for rest.
 <br/>
 <br/>
 
-STRAPI should act as an interface between your back-end and the underlying database.
-When you use STRAPI, you do not need to directly write SQL queries in your back-end code, like how we do it now.
+STRAPI should act as an interface between our back-end and the underlying database.
+When we use STRAPI, we do not need to directly write SQL queries in our back-end code, like how we do it now.
 
 We have to spend some time analyzing what data goes where and start a refactor.
-Ideally, we should talk to STRAPI API for cases like management of products in the database, for the rest we should use our custom back-end.
+Ideally, we should talk to STRAPI API for cases like management of products in the database, and for the rest we should use our custom back-end business logic.
 
-I reviewed the application requirements and consider that we should use STRAPI to fulfil all our needs in terms of products. They also support authentication, but I need a deeper dive into that.
-
-In theory we can drop custom back-end all together, as STRAPI abstracts away these details, and starts a server behind the scenes to serve our application.
-
-
-<!-- TOPIC -->
-<br/>
-<b>
-We should dedicate some time to document things out.
-</b>
-<br/>
-<br/>
-
-Once we are done with refactor, and code migration, we should spend some time to actually build up some documents like this one you are reading, to keep up some insights and gained knowledge.
-
+I briefly reviewed the application components yesterday (although I do not have access to Admin and STRAPI yet) and I have a gut feeling that we should use STRAPI to fulfil all our needs in terms of products. They also support authentication, but I need a deeper dive into that, but in theory we can drop our custom back-end at all, as STRAPI abstracts away these details, and even starts a server behind the scenes to serve our application.
 
 <!-- TOPIC -->
 <br/>
@@ -102,9 +88,17 @@ We need to figure out the access issue.
 <br/>
 <br/>
 
-
-By incorporating STRAPI features such as user-friendly admin panel, CSV import support, and API-based data retrieval we will use its capabilities to their fullest extent, which is essential for efficient development and maintenance.
+By incorporating STRAPI features such as user-friendly dashboard, CSV import support, and API-based data retrieval, we will use its capabilities to their fullest extent, which is essential for efficient maintenance.
 
 I am blocked by no access to STRAPI, as we rely on it for majority of our flows.
-We need to figure out the way to share access to our https://strapi.io/
+We need to figure out the way to share access to our company https://strapi.io/ account.
 
+<!-- TOPIC -->
+<br/>
+<b>
+We should dedicate some time to document things out.
+</b>
+<br/>
+<br/>
+
+Once we are done with refactor, and code migration, we should spend some time to actually build up some documents like this one you are reading, to store some valuable insights and gained knowledge, throughout the process.
