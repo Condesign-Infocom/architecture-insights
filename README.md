@@ -50,7 +50,7 @@ The most basic approach is to manually enter data into STRAPI dashboard, however
 <!-- TOPIC -->
 <br/>
 <b>
-Our back-end to database flow is confusing and poorly documented.
+Our back-end to database flow is not clear.
 </b>
 <br/>
 <br/>
